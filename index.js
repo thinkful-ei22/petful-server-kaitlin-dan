@@ -1,5 +1,40 @@
 'use strict';
 
+const catArray = [{
+  imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg', 
+  imageDescription: 'Orange bengal cat with black stripes lounging on concrete.',
+  name: 'Fluffy',
+  sex: 'Female',
+  age: 2,
+  breed: 'Bengal',
+  story: 'Thrown on the street'
+}, {
+  imageURL: "https://static.pexels.com/photos/20787/pexels-photo.jpg",
+  imageDescription: "Grey siamese cat with bright green eyes, looking up to the camera.",
+  name: "Tina",
+  sex: "female",
+  age: 3,
+  breed: "Siamese",
+  story: "Abandoned by previous owner."
+  }]
+
+const dogArray = [{
+  imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
+  imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
+  name: 'Zeus',
+  sex: 'Male',
+  age: 3,
+  breed: 'Golden Retriever',
+  story: 'Owner Passed away'
+}, {
+  imageURL: "http://img.freepik.com/free-photo/husky-breed-dog-with-tongue-out_1187-1500.jpg?size=338&ext=jpg",
+  name: "June",
+  sex: "female",
+  age: 1,
+  breed: "Husky",
+  story: "Rejected by mother."
+  }]
+
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
@@ -26,33 +61,13 @@ app.use(
 
 app.get('/api/cat', (req,res) => {
   // show the cat that is next in line to be adopted
-  const dummyCat = {
-    imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg', 
-    imageDescription: 'Orange bengal cat with black stripes lounging on concrete.',
-    name: 'Fluffy',
-    sex: 'Female',
-    age: 2,
-    breed: 'Bengal',
-    story: 'Thrown on the street'
-  };
-
-  return res.json(dummyCat); //return a cat
+  return res.json(catArray[0]); //return a cat
 })
 
 // dog GET function
 
 app.get('/api/dog', (req, res) => {
-  const dummyDog = {
-    imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
-    imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
-    name: 'Zeus',
-    sex: 'Male',
-    age: 3,
-    breed: 'Golden Retriever',
-    story: 'Owner Passed away'
-  }
-
-  return res.json(dummyDog); // return a dog
+    return res.json(dogArray[0]); // return a dog
 })
 
 function runServer(port = PORT) {
