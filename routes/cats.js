@@ -34,7 +34,7 @@ catRouter.get('/cats', (req, res) => {
 })
 
 catRouter.delete('/cats', (req, res) => {
-  return res.json(catArray.shift()).sendStatus(200).end(); // delete the first dog in the array
+  return res.json(catArray.shift()); // delete the first dog in the array
 })
 
 module.exports = catRouter;

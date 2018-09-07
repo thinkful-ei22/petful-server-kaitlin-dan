@@ -32,7 +32,7 @@ dogRouter.get('/dogs', (req, res) => {
 })
 
 dogRouter.delete('/dogs', (req, res) => {
-  res.json(dogArray.shift()).sendStatus(200).end(); // delete the first dog in the array
+  res.json(dogArray.shift()); // delete the first dog in the array
 })
 
 module.exports = dogRouter;
