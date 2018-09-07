@@ -16,7 +16,15 @@ const catArray = [{
   age: 3,
   breed: "Siamese",
   story: "Abandoned by previous owner."
-  }]
+  }, {
+    imageURL: "http://www.catvet.ca/wp-content/uploads/2016/07/cathealth_kitty.jpg",
+    imageDescription: "Tan-colored kitten pawing at the camera.",
+    name: "Thunder",
+    sex: "Male",
+    age: 1,
+    breed: "Tabby",
+    story: "Owner moved to another country."
+    }]
 
 const dogArray = [{
   imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
@@ -33,7 +41,14 @@ const dogArray = [{
   age: 1,
   breed: "Husky",
   story: "Rejected by mother."
-  }]
+}, {
+  imageURL: "http://www.dogbreedslist.info/uploads/allimg/dog-pictures/German-Shepherd-Dog-1.jpg",
+  name: "Tornado",
+  sex: "female",
+  age: 5,
+  breed: "German Shepherd",
+  story: "Owner moved to a small apartment."
+}]
 
 const express = require('express');
 const cors = require('cors');
@@ -64,6 +79,11 @@ app.get('/api/cat', (req,res) => {
   return res.json(catArray[0]); //return a cat
 })
 
+// cat DELETE function
+app.delete('/api/cat', (req, res) => {
+  res.json(catArray.shift()).sendStatus(200);
+})
+
 // dog GET function
 
 app.get('/api/dog', (req, res) => {
@@ -80,6 +100,11 @@ function runServer(port = PORT) {
       console.error(err);
     });
 }
+
+// dog DELETE function
+app.delete('/api/dog', (req, res) => {
+  res.json(dogArray.shift()).sendStatus(200);
+})
 
 if (require.main === module) {
   dbConnect();
