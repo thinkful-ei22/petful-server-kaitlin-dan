@@ -51,5 +51,9 @@ class Queue {
 
     return node.value;
   }
+
+  peek() {
+    return this.first.value;
+  }
 }
 module.exports = Queue;
